@@ -1,0 +1,36 @@
+<!DOCTYPE html>
+<html>
+ 
+<!-- Head Section content -->
+<head>
+ 
+    <!-- Page title -->
+    <title>Welcome Page</title>
+</head>
+ 
+<!-- Body Section content -->
+<body>
+    <style>
+        body {
+            background-image: url("/media/book_images/LMS2.jpg");
+            background-repeat: no-repeat;
+            background-attachment: fixed;
+            background-size: 75% 75%;
+            }       
+    </style>
+    <!-- Used to display heading content -->
+    <h1 style="color:aliceblue;">Welcome to National Library Management System</h1>
+ 
+    <!-- Used to display paragrapg content -->
+    <p style="color:aliceblue;"><b>Online Library for exploring books and getting them issued. Accessed by Admin and Members(Students/Teachers)</b></p>
+
+    <a style="color:aliceblue;" class="btn btn-outline-info  btn-sm btn-block" href="/admin_login/">Admin</a>
+    <br>
+    <br>
+    <a style="color:aliceblue;" class="btn btn-outline-info  btn-sm btn-block" href="{% url 'libapp:register' %}">Register as Student</a>
+    <br>
+    <br>
+    <a style="color:aliceblue;" class="btn btn-outline-info  btn-sm btn-block" href="{% url 'libapp:login' %}">Login as Student</a>
+</body>
+ 
+</html>

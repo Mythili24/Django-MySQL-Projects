@@ -1,0 +1,15 @@
+<form method="POST" enctype="multipart/form-data">
+    {% csrf_token %}
+
+    <input type="text" name="name" id="name" placeholder="Enter member's name"><br><br>
+    <input type="email" name="email" id="email" placeholder="Enter member's email"><br><br>
+    <input type="tel" name="phone" id="phone" placeholder="Enter member's phone"><br><br>
+    <input type="date" name="date_created" id="date_created" placeholder="Enter joined date"><br><br>
+    <input type="text" name="type" id="type" placeholder="Enter member type-Student/Teacher"><br><br>
+    <input type="file" name="member_image" id="member_image">
+    <input type="submit" value="Submit">
+
+    
+    
+</form>
+

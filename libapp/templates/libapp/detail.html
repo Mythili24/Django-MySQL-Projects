@@ -1,0 +1,16 @@
+{% extends 'libapp/admin_navbar.html' %}
+
+{% block body %}
+
+<img width = "100" height = "100" src="{{book.book_image.url}}">
+<h2>{{book.bname}}</h2>
+<h4>{{book.authorname}}</h4>
+<h6>{{book.bookdesc}}<br>
+    {{book.stock}}<br>
+    {{book.price}}<br>
+    {{book.book_category}}<br>
+</h6>
+
+<a class='btn btn-warning' href="{% url 'libapp:update' book.id %}">Update</a>
+<a class='btn btn-warning' href="{% url 'libapp:delete' book.id %}">Delete</a>
+{% endblock %}

@@ -1,0 +1,41 @@
+{% extends 'libapp/admin_navbar.html' %} 
+{% block body %}
+
+<h5>Member Issue Details</h5>
+<br>
+
+<div class="row">
+	<div class="col-md">
+		<div class="card card-body">
+			<h5>Member: {{member_name}}</h5>
+		</div>
+	</div>
+	{% if li %}
+		{% for t in li %}
+		<div class="col-md">
+			<div class="card card-body">			
+				<h5>Issue Information</h5>
+					<hr>
+					<p>Serial No 	: {{t.0}} 			  </p>
+					<p>Bookname 	: {{t.1}}	    	  </p>            
+                	<p>Issue Date 	: {{t.2}}	          </p>             
+                	<p>Due Date		: {{t.3}}	          </p>            
+                	<p>{{t.4}}		: {{t.5}} days        </p>            
+                	<p>Fine			: {{t.6}} rupees      </p> 
+					<p><a class="btn btn-outline-info  btn-sm btn-block" href="{%url 'libapp:return_book' t.0 %}">Return Book</a></p>
+        	</div>
+		</div>
+		{% endfor %}      
+	{% else %}
+	<h1> 0 book issued </h1>
+	{% endif %}
+	<div class="col-md">
+		<div class="card card-body">
+			<h5>Total Books Issued by the person</h5>
+			<hr>
+			<h1 style="text-align: center;padding: 10px">{{book_count}}</h1>
+		</div>
+	</div>
+	
+</div>
+{% endblock %}

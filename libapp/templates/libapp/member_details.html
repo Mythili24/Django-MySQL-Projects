@@ -1,0 +1,28 @@
+{% extends 'libapp/admin_navbar.html' %} 
+{% block body %}
+
+<br>
+
+<div class="row">
+	<div class="col-md">
+		<div class="card card-body">
+			<h5>Member: {{member.name}}</h5>
+			<h5>Type  : {{member.type}}</h5>
+			<hr>
+			<a class="btn btn-outline-info  btn-sm btn-block" href="{% url 'libapp:update_member' member.id %}">Update Member</a>
+			<a class="btn btn-outline-info  btn-sm btn-block" href="{% url 'libapp:delete_member' member.id %}">Delete Member</a>
+			<a class="btn btn-outline-info  btn-sm btn-block" href="{% url 'libapp:issue_book' member.id %}">Issue Book</a>
+		</div>
+	</div>
+
+	<div class="col-md">
+		<div class="card card-body">
+			<h5>Contact Information</h5>
+			<hr>
+			<p>Email      : {{member.email}}</p>
+			<p>Phone      : {{member.phone}}</p>
+			<p>Joined Date: {{member.date_created}}</p>
+		</div>
+	</div>
+</div>
+{% endblock %}

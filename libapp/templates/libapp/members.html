@@ -1,0 +1,26 @@
+{% extends 'libapp/admin_navbar.html' %} 
+{% block body %}
+
+<a class="btn btn-outline-info  btn-sm btn-block" href="{% url 'libapp:add_member' %}">Add New Member</a>
+<br>
+<br>
+<br>
+<div class="container">
+    <div class="row">
+        {% for member in member_list %}
+        <div class="col-md-3">
+            <div class="card">
+                <img src="{{member.member_image.url}}" class="card-img-top" alt="">
+                <div class="card-body">
+                    <h5 class="card-title">{{member.name}}</h5>
+                    <a class="btn btn-outline-info  btn-sm btn-block" href="{% url 'libapp:member_detail' member.id %}">View Member Details  </a>
+                    <a class="btn btn-outline-info  btn-sm btn-block" href="{% url 'libapp:issue_detail' member.id %}">View Issued Books</a>
+                </div>
+            </div>
+        </div>
+        {% endfor %}
+    </div>
+</div>
+
+{% endblock %}
+

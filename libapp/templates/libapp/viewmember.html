@@ -1,0 +1,79 @@
+{% load static %}
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/bootstrap@4.0.0/dist/css/bootstrap.min.css" integrity="sha384-Gn5384xqQ1aoWXA+058RXPxPg6fy4IWvTNh0E263XmFcJlSAwiGgFAW/dAiS6JXm" crossorigin="anonymous">
+    <link rel="stylesheet" href="{% static 'libapp/style.css' %}">
+    <title>Document</title>
+</head>
+<body>
+    <style>
+        .hello-msg{
+          font-size: 18px;
+          color: #000000;
+          margin-right: 20px;
+        }        
+    </style>
+  
+    <!-- Image and text -->
+    <nav class="navbar navbar-expand-lg navbar-light bg-light">
+        <a class="navbar-brand" href="#">National Library Management System</a>
+        <button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#navbarNav" aria-controls="navbarNav" aria-expanded="false" aria-label="Toggle navigation">
+          <span class="navbar-toggler-icon"></span>
+        </button>    
+        <span class="hello-msg">Hello, {{request.user}}</span>
+        <span ><a class="hello-msg" href="{% url 'libapp:logout' %}">Logout</a></span>
+    </nav>
+    <center>
+        <img width="250" height="250" src="{{member.member_image.url}}">
+    </center>
+    <hr>
+    <hr>
+    <div class="container profile">
+        <div class="row">
+            <div class="col-md-8">
+                <div class="profile-tab">
+                    <div class="tab-pane">
+                        <div class="row">
+                            <div class="col-md-6">
+                                <label>Member:</label>
+                            </div>
+                            <div class="col-md-6">
+                                <p>{{member.name}}</p>
+                            </div>
+                            <div class="col-md-6">
+                                <label>Type:</label>
+                            </div>
+                            <div class="col-md-6">
+                                <p>{{member.type}}</p>
+                            </div>
+                            <div class="col-md-6">
+                                <label>Email:</label>
+                            </div>
+                            <div class="col-md-6">
+                                <p>{{member.email}}</p>
+                            </div>
+                            <div class="col-md-6">
+                                <label>Phone:</label>
+                            </div>
+                            <div class="col-md-6">
+                                <p>{{member.phone}}</p>
+                            </div>
+                            <div class="col-md-6">
+                                <label>Joined Date:</label>
+                            </div>
+                            <div class="col-md-6">
+                                <p>{{member.date_created}}</p>
+                            </div>
+                    
+                            <a class="btn btn-outline-info  btn-sm btn-block" href="{% url 'libapp:update_member' member.id %}">Update Member</a>
+                            <a class="btn btn-outline-info  btn-sm btn-block" href="{% url 'libapp:issue_detail' member.id %}">View Issued Books</a>
+                            <a class="btn btn-outline-info  btn-sm btn-block" href="{% url 'libapp:books' %}">Search Books</a>
+                        </div>                           
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+</body>
+</html>

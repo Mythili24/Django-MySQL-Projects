@@ -1,0 +1,54 @@
+
+<div class="card-body" style="padding-bottom: 0.25rem;padding-top: 0.25rem;">
+<h2>Add Issue Details for a Member</h2>
+    <form method="POST" action="">
+        {% csrf_token %}
+        <table>
+            <tr>
+                <td>
+                    <label for="member">Choose a member:</label>
+                    <select id="member" name="member" class="member-dropdown" style="width:200px;">
+                        {% for member in member_list %}
+                            <option value="{{ member }}">{{ member }}</option>
+                        {% endfor %}
+                    </select>
+                </td>
+            </tr>            
+            <tr>
+                <td>
+                    <label for="type">Enter member's type:</label>
+                    <select id="type-select" name="type" class="type-dropdown" style="width:200px;">
+                        <option value="">--Please choose an option</option>
+                        <option value="teacher">Teacher</option>
+                        <option value="student">Student</option>
+                    </select>
+                </td>
+            </tr>
+            <tr>
+                <td>
+                    <label for="bname">Enter book's name he borrowed:</label>
+                    <input type="text" name="bname" id="bname" placeholder="Enter book's name he borrowed"><br><br>
+                </td>
+            </tr>
+            <tr>
+                <td>
+                    <label for="issue_date">Enter issued date:</label>
+                    <input type="date" name="issue_date" id="issue_date" placeholder="Enter issued date"><br><br>
+                </td>
+            </tr>
+            <tr>
+                <td>
+                    <label for="due_date">Enter due date:</label>
+                    <input type="date" name="due_date" id="due_date" placeholder="Enter due date"><br><br> 
+                </td>                
+            </tr>
+        </table>
+        <button type="submit">Submit</button>       
+    </form>
+</div>
+
+
+
+
+
+
